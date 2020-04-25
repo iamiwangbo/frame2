@@ -26,6 +26,10 @@ hs_err_pid*
 target/
 *.iml
 
+.mvn/
+mvnw
+mvnw.cmd
+
 .DS_Store
 node_modules/
 dist/
