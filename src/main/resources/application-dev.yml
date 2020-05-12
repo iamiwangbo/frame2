@@ -1,18 +1,39 @@
 
 spring:
   datasource:
+    driver-class-name: com.mysql.jdbc.Driver # MySQL 8.x: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/frame2?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
     druid:
-      url: jdbc:mysql://127.0.0.1:3306/frame2?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8&useSSL=false
-      username: root
-      password: 123456
       initial-size: 5
       min-idle: 5
       max-active: 20
-      test-on-borrow: true
-      driver-class-name: com.mysql.jdbc.Driver # MySQL 8.x: com.mysql.cj.jdbc.Driver
+      max-wait: 60000
+      test-on-borrow: false
+      validation-query: select 'x'
+      filters: stat,wall,log4j2 #过滤器设置（第一个stat很重要，没有的话会监控不到SQL）
+      web-stat-filter:
+        enabled: true #启用StatFilter
+        url-pattern: /* #添加过滤规则
+        exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'  #排除一些不必要的url
+      stat-view-servlet:
+        allow: 127.0.0.1
+        deny: ''
+        enabled: true
+        login-password: 123
+        login-username: admin
+        reset-enable: false
+        url-pattern: /druid/*
   redis:
     database: 0
     host: 127.0.0.1
     port: 6379
+
+
+
+
+
 
 

@@ -39,6 +39,11 @@
         </dependency>
 
         <!-- druid-spring-boot-starter -->
+        <!-- 引入druid依赖 -->
+        <!-- 此处的引用有两种 -->
+        <!-- 一种是直接引用druid包,另一种是引用starter方式 -->
+        <!-- 在此处我引用的是start包,为什么呢，因为方便呀... -->
+        <!-- 注:如果没有该包,application.properties/application.yml 中将不会出现关于druid的提示 -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-starter</artifactId>
@@ -49,10 +54,15 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.40</version>
+            <version>5.1.47</version>
             <scope>runtime</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>2.1.1</version>
+        </dependency>
 
         <!-- mapper-spring-boot-starter -->
         <dependency>
@@ -76,6 +86,7 @@
 
 
         <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
+        <!-- 针对redis序列化value时，出现异常添加-->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
