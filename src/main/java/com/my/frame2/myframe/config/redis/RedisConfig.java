@@ -1,4 +1,4 @@
-package com.my.frame2.myframe.common.redis;
+package com.my.frame2.myframe.config.redis;
 
 
 

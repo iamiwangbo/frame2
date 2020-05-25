@@ -1,4 +1,4 @@
-package com.my.frame2.myframe.common.mybatis;
+package com.my.frame2.myframe.config.mybatis;
 
 import org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
@@ -21,7 +21,7 @@ public class MapperScannerConfig {
         MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
         mapperScannerConfigurer.setSqlSessionFactoryBeanName("sqlSessionFactory");
         // mapper类的包名--即操作数据库的对应到数据表的Mapper.java类的包名，如果这里的包名配错项目启动报错
-        mapperScannerConfigurer.setBasePackage("com.test.mapper.customer");
+        mapperScannerConfigurer.setBasePackage("com.my.frame2.myframe.*.dao");
 
         // 这里properties的相关配置，由于能力有限，暂时还未探究，如果你知道请麻烦告诉我，谢谢
         Properties properties = new Properties();
